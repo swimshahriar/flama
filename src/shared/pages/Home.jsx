@@ -1,12 +1,12 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 
+import TopSection from "../components/HomePage/TopSection";
+
 const Home = () => {
   return (
-    <Container>
-      <h1>Flama</h1>
-      <h3>Heading 3</h3>
-      <p>Paragraph</p>
+    <Container fluid>
+      <TopSection />
     </Container>
   );
 };

@@ -6,11 +6,13 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import MainNav from "./shared/components/Header/MainNav";
 import Home from "./shared/pages/Home";
 
 const App = () => {
   return (
     <Router>
+      <MainNav />
       <main>
         <Suspense fallback={<h1>Loading...</h1>}>
           <Switch>
