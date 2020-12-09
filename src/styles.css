@@ -2,11 +2,11 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Noto Sans", sans-serif;
-  scroll-behavior: smooth;
 }
 
 h1,
@@ -21,6 +21,10 @@ h6 {
 @media (min-width: 1200px) {
   h1 {
     font-size: calc(1rem + 3.5vw);
+  }
+
+  h2 {
+    font-size: calc(1rem + 1.4vw);
   }
 
   h3 {

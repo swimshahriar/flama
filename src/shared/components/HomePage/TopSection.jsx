@@ -37,7 +37,9 @@ const TopSection = () => {
           variants={variants}
           transition={{ ease: "easeIn", duration: 0.6, delay: 0.5 }}
         >
-          <Button variant="success text-uppercase px-5 py-2">Join</Button>
+          <Button variant="success text-uppercase font-weight-bold px-5 py-2">
+            Join
+          </Button>
         </motion.div>
       </Col>
       <Col md="6" className="my-auto">
@@ -46,7 +48,7 @@ const TopSection = () => {
           initial="hidden"
           animate="visible"
           variants={variants}
-          transition={{ ease: "easeIn", duration: 0.8, delay: 0.7 }}
+          transition={{ ease: "easeIn", duration: 0.8, delay: 0.5 }}
         >
           <Image src={HomeTopImage} alt="home-top-img" className="w-100" />
         </motion.div>
