@@ -13,45 +13,36 @@ const TopSection = () => {
   return (
     <Row className="bg-dark vh-100 text-light">
       <Col md="6" className="my-auto">
-        <motion.h1
-          className="mb-3"
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ ease: "easeIn", duration: 0.5 }}
-        >
+        <h1 className="mb-3" data-aos="fade-right" data-aos-duration="1000">
           Make Your Life Easier
-        </motion.h1>
-        <motion.h3
+        </h1>
+        <h3
           className="mb-5"
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ ease: "easeIn", duration: 0.6, delay: 0.3 }}
+          data-aos="fade-right"
+          data-aos-delay="100"
+          data-aos-duration="1000"
         >
           Flat Mangement & Expense Tracker
-        </motion.h3>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ ease: "easeIn", duration: 0.6, delay: 0.5 }}
+        </h3>
+        <div
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="1000"
         >
           <Button variant="success text-uppercase font-weight-bold px-5 py-2">
             Join
           </Button>
-        </motion.div>
+        </div>
       </Col>
       <Col md="6" className="my-auto">
-        <motion.div
+        <div
           className="fluid"
-          initial="hidden"
-          animate="visible"
-          variants={variants}
-          transition={{ ease: "easeIn", duration: 0.8, delay: 0.5 }}
+          data-aos="fade-left"
+          data-aos-delay="300"
+          data-aos-duration="1000"
         >
           <Image src={HomeTopImage} alt="home-top-img" className="w-100" />
-        </motion.div>
+        </div>
       </Col>
     </Row>
   );

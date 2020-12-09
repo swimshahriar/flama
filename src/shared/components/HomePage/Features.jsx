@@ -11,8 +11,8 @@ import "./Features.css";
 
 const Features = () => {
   return (
-    <div id="features">
-      <h2 className="text-center text-uppercase font-weight-bold mt-5">
+    <div id="features" className="vh-100 my-auto">
+      <h2 className="text-center text-uppercase font-weight-bold pt-5">
         Features
       </h2>
       <Row className="mt-5">
@@ -55,7 +55,7 @@ const Features = () => {
           className="text-center"
           data-aos="zoom-in"
           data-aos-duration="500"
-          data-aos-delay="200"
+          data-aos-delay="100"
         >
           <div className="my-3 feature-icon text-success">
             <EditIcon />
@@ -72,7 +72,7 @@ const Features = () => {
           className="text-center"
           data-aos="zoom-in"
           data-aos-duration="500"
-          data-aos-delay="300"
+          data-aos-delay="100"
         >
           <div className="my-3 feature-icon text-success">
             <DollarIcon />
