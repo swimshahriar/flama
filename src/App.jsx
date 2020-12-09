@@ -5,9 +5,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import MainNav from "./shared/components/Header/MainNav";
 import Home from "./shared/pages/Home";
+import "./styles.css";
 
 const App = () => {
   return (

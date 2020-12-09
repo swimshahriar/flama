@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, NavDropdown, Button } from "react-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
 
 const NavLinks = () => {
   return (
@@ -11,8 +11,7 @@ const NavLinks = () => {
         <NavDropdown.Item href="#action/3.2">Channels</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Expenses</NavDropdown.Item>
       </NavDropdown>
-
-      <Button variant="light">JOIN</Button>
+      <Nav.Link>Login/Register</Nav.Link>
     </>
   );
 };

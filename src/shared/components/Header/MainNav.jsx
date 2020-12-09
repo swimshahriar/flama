@@ -9,7 +9,12 @@ const MainNav = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand>
         <Link to="/">
-          <p className="font-weight-bold">Flama</p>
+          <p
+            className="font-weight-bold"
+            style={{ fontSize: "calc(1rem + 1vw)" }}
+          >
+            Flama
+          </p>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />

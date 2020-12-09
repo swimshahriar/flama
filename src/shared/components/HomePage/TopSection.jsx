@@ -37,7 +37,7 @@ const TopSection = () => {
           variants={variants}
           transition={{ ease: "easeIn", duration: 0.6, delay: 0.5 }}
         >
-          <Button variant="success">Join Now</Button>
+          <Button variant="success text-uppercase px-5 py-2">Join</Button>
         </motion.div>
       </Col>
       <Col md="6" className="my-auto">

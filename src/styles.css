@@ -18,6 +18,24 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
+@media (min-width: 1200px) {
+  h1 {
+    font-size: calc(1rem + 3.5vw);
+  }
+
+  h3 {
+    font-size: calc(1rem + 1.2vw);
+  }
+
+  a {
+    font-size: calc(0.5rem + 0.5vw);
+  }
+
+  .btn {
+    font-size: calc(0.7rem + 1vw);
+  }
+}
+
 a {
   color: inherit;
 }
