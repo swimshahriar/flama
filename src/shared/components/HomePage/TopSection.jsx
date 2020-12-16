@@ -1,15 +1,9 @@
 import React from "react";
 import { Row, Col, Button, Image } from "react-bootstrap";
-import { motion } from "framer-motion";
 
 import HomeTopImage from "../../../assets/images/home/home-top.svg";
 
 const TopSection = () => {
-  const variants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0 },
-  };
-
   return (
     <Row className="bg-dark vh-100 text-light">
       <Col md="6" className="my-auto">
