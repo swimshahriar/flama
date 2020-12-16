@@ -5,7 +5,7 @@ import HomeTopImage from "../../../assets/images/home/home-top.svg";
 
 const TopSection = () => {
   return (
-    <Row className="bg-dark vh-100 text-light">
+    <Row className="bg-dark text-light py-5">
       <Col md="6" className="my-auto">
         <h1 className="mb-3" data-aos="fade-right" data-aos-duration="1000">
           Make Your Life Easier
@@ -28,10 +28,10 @@ const TopSection = () => {
           </Button>
         </div>
       </Col>
-      <Col md="6" className="my-auto">
+      <Col md="6" className="my-auto pt-5">
         <div
           className="fluid"
-          data-aos="fade-left"
+          data-aos="fade-right"
           data-aos-delay="300"
           data-aos-duration="1000"
         >

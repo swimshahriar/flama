@@ -11,7 +11,7 @@ import "./Features.css";
 
 const Features = () => {
   return (
-    <div id="features" className="vh-100 my-auto">
+    <div id="features" className="my-auto">
       <h2 className="text-center text-uppercase font-weight-bold pt-5">
         Features
       </h2>
