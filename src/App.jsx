@@ -10,6 +10,7 @@ import AOS from "aos";
 
 import MainNav from "./shared/components/Header/MainNav";
 import Home from "./shared/pages/Home";
+import Auth from "./users/pages/Auth/Auth";
 import "aos/dist/aos.css";
 import "./styles.css";
 
@@ -24,6 +25,9 @@ const App = () => {
           <Switch>
             <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/auth">
+              <Auth />
             </Route>
             <Redirect to="/" />
           </Switch>

@@ -2,5 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import App from "./App";
+import { ProvideAuth } from "./hooks/useAuth";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <ProvideAuth>
+    <App />
+  </ProvideAuth>,
+  document.getElementById("root")
+);

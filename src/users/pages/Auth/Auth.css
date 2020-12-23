@@ -1,0 +1,9 @@
+.auth-img {
+  width: calc(2rem + 32vw);
+}
+
+@media (min-width: 1200px) {
+  .auth-img {
+    width: calc(2rem + 20vw);
+  }
+}
