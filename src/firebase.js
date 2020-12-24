@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/auth";
 
 const firebaseConfig = {
@@ -13,4 +13,4 @@ const firebaseConfig = {
 // app initialization
 firebase.initializeApp(firebaseConfig);
 
-export { firebase };
+export default firebase;

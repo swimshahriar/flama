@@ -2,7 +2,11 @@ import React from "react";
 import { Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../../../hooks/useAuth";
+
 const NavLinks = () => {
+  const auth = useAuth();
+
   return (
     <>
       <Nav.Link>
@@ -15,10 +19,13 @@ const NavLinks = () => {
         <NavDropdown.Item href="#action/3.2">Channels</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Expenses</NavDropdown.Item>
       </NavDropdown>
-
-      <Nav.Link>
-        <Link to="/auth">Login/Register</Link>
-      </Nav.Link>
+      {auth.user ? (
+        <Nav.Link onClick={() => auth.signout()}>Logout</Nav.Link>
+      ) : (
+        <Nav.Link>
+          <Link to="/auth">Login/Register</Link>
+        </Nav.Link>
+      )}
     </>
   );
 };

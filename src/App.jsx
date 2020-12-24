@@ -5,6 +5,8 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import "jquery";
+import "popper.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 

@@ -1,5 +1,14 @@
+.mt-lg {
+  margin-top: calc(1rem + 5vw);
+}
+
 .auth-img {
   width: calc(2rem + 32vw);
+}
+
+.form-mode-switch:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media (min-width: 1200px) {
