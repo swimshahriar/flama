@@ -103,7 +103,6 @@ const Auth = () => {
                   })
                   .catch((err) => setError(err.message));
               } else if (resetPassword) {
-                console.log("I am here");
                 auth
                   .sendPasswordResetEmail(email)
                   .then(() => {
