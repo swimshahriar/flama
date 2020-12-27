@@ -14,6 +14,7 @@ import MainNav from "./shared/components/Header/MainNav";
 import Home from "./shared/pages/Home";
 import Auth from "./users/pages/Auth/Auth";
 import Footer from "./shared/components/HomePage/Footer";
+import Dashboard from "./users/pages/Dashboard/Dashboard";
 import { useAuth } from "./hooks/useAuth";
 import "aos/dist/aos.css";
 import "./styles.css";
@@ -27,7 +28,9 @@ const App = () => {
   if (auth.user) {
     routes = (
       <>
-        <Route></Route>
+        <Route to="/usr/dashboard">
+          <Dashboard />
+        </Route>
       </>
     );
   } else {

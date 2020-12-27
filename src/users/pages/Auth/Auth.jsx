@@ -72,7 +72,7 @@ const Auth = () => {
                     resetForm();
                     setShow(true);
                     setTimeout(() => {
-                      history.push("/");
+                      history.push("/usr/dashboard");
                     }, 1600);
                   })
                   .catch((err) => setError(err.message));
@@ -83,7 +83,7 @@ const Auth = () => {
                     resetForm();
                     setShow(true);
                     setTimeout(() => {
-                      history.push("/");
+                      history.push("/usr/dashboard");
                     }, 1600);
                   })
                   .catch((err) => setError(err.message));
