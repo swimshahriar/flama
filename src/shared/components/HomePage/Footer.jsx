@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import {
   AiOutlineFacebook as Fb,
   AiOutlineInstagram as Ig,
@@ -11,7 +11,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="mt-5 text-center">
+    <Container fluid className="mt-5 text-center">
       <Row id="footer" className="bg-dark text-white px-3 py-5">
         <Col
           md="4"
@@ -81,7 +81,7 @@ const Footer = () => {
         </a>
         .
       </p>
-    </div>
+    </Container>
   );
 };
 
