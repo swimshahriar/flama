@@ -34,6 +34,7 @@ const Auth = () => {
   const [login, setLogin] = useState(true);
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);
+  const [resetPassword, setResetPassword] = useState(false);
   const auth = useAuth();
   const history = useHistory();
 
@@ -62,16 +63,24 @@ const Auth = () => {
           data-aos-delay="200"
         >
           <Formik
-            initialValues={{ email: "", password: "" }}
-            validationSchema={yup.object({
-              email: yup.string().email().required(),
-              password: yup.string().min(6).required(),
-            })}
+            initialValues={
+              resetPassword ? { email: "" } : { email: "", password: "" }
+            }
+            validationSchema={yup.object(
+              resetPassword
+                ? {
+                    email: yup.string().email().required(),
+                  }
+                : {
+                    email: yup.string().email().required(),
+                    password: yup.string().min(6).required(),
+                  }
+            )}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               setError("");
-              const { email, password } = values;
-              console.log(email, password);
-              if (login) {
+              const { email, password = "" } = values;
+
+              if (login && !resetPassword) {
                 auth
                   .signin(email, password)
                   .then(() => {
@@ -82,7 +91,7 @@ const Auth = () => {
                     }, 1600);
                   })
                   .catch((err) => setError(err.message));
-              } else {
+              } else if (!login && !resetPassword) {
                 auth
                   .signup(email, password)
                   .then(() => {
@@ -90,6 +99,20 @@ const Auth = () => {
                     setShow(true);
                     setTimeout(() => {
                       history.push("/usr/dashboard");
+                    }, 1600);
+                  })
+                  .catch((err) => setError(err.message));
+              } else if (resetPassword) {
+                console.log("I am here");
+                auth
+                  .sendPasswordResetEmail(email)
+                  .then(() => {
+                    resetForm();
+                    setShow(true);
+                    setTimeout(() => {
+                      alert(
+                        "Please, check your inbox for further instructions!"
+                      );
                     }, 1600);
                   })
                   .catch((err) => setError(err.message));
@@ -105,12 +128,19 @@ const Auth = () => {
                 placeholder="demo@email.com"
               />
 
-              <MyInput
-                label="Password"
-                name="password"
-                type="password"
-                placeholder="******"
-              />
+              {!resetPassword && (
+                <MyInput
+                  label="Password"
+                  name="password"
+                  type="password"
+                  placeholder="******"
+                />
+              )}
+              <div className="text-dark font-weight-bold text-right">
+                <p onClick={() => setResetPassword(true)} className="btn-txt">
+                  Reset Password
+                </p>
+              </div>
               {error && (
                 <div className="text-danger text-center mb-3">
                   <p>{error}</p>
@@ -123,7 +153,9 @@ const Auth = () => {
                   type="submit"
                   size="lg"
                 >
-                  {login ? "Login" : "Register"}
+                  {login && !resetPassword && "Login"}
+                  {!login && !resetPassword && "Register"}
+                  {resetPassword && "Reset"}
                 </Button>
               </div>
             </FormikForm>
@@ -132,8 +164,11 @@ const Auth = () => {
             <p>
               {login ? "Don't" : "Already"} have an account?{" "}
               <span
-                onClick={() => setLogin((prev) => !prev)}
-                className="font-weight-bold text-dark form-mode-switch"
+                onClick={() => {
+                  setLogin((prev) => !prev);
+                  setResetPassword(false);
+                }}
+                className="font-weight-bold text-dark btn-txt"
               >
                 {login ? "Register Here" : "Login"}
               </span>

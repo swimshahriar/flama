@@ -6,7 +6,7 @@
   width: calc(2rem + 32vw);
 }
 
-.form-mode-switch:hover {
+.btn-txt:hover {
   cursor: pointer;
   text-decoration: underline;
 }
