@@ -49,12 +49,18 @@ const Auth = () => {
         <h2>Authentication</h2>
       </div>
       <Row className="mt-lg">
-        <Col md="12" lg="6">
+        <Col md="12" lg="6" data-aos="fade-right" data-aos-duration="800">
           <div className="text-center mt-3">
             <Image src={AuthImg} alt="authImg" className="auth-img my-5" />
           </div>
         </Col>
-        <Col md="12" lg="6">
+        <Col
+          md="12"
+          lg="6"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={yup.object({
