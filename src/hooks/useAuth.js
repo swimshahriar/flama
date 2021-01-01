@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from 'react';
 
-import firebase from "../firebase";
+import firebase from '../firebase';
 
 const authContext = createContext({
   user: null,
@@ -82,13 +82,17 @@ function useProvideAuth() {
   // ... component that utilizes this hook to re-render with the ...
   // ... latest auth object.
   useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(false);
-      }
-    });
+    const unsubscribe = firebase
+      .auth()
+      .onAuthStateChanged((user) => {
+        if (user) {
+          setUser(user);
+        } else {
+          setUser(false);
+        }
+      })
+      .then(() => {})
+      .catch((err) => console.log(err.message));
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
