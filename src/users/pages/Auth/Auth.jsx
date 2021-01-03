@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Form, Button, Container, Image, Row, Col } from "react-bootstrap";
-import { Formik, Form as FormikForm, useField } from "formik";
-import * as yup from "yup";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { Form, Button, Container, Image, Row, Col } from 'react-bootstrap';
+import { Formik, Form as FormikForm, useField } from 'formik';
+import * as yup from 'yup';
+import { useHistory } from 'react-router-dom';
 
-import AuthImg from "../../../assets/images/auth/auth.svg";
-import { useAuth } from "../../../hooks/useAuth";
-import Toast from "../../../shared/components/Toast/Toast";
-import "./Auth.css";
+import AuthImg from '../../../assets/images/auth/auth.svg';
+import { useAuth } from '../../../hooks/useAuth';
+import './Auth.css';
 
 const MyInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
@@ -32,20 +31,13 @@ const MyInput = ({ label, ...props }) => {
 
 const Auth = () => {
   const [login, setLogin] = useState(true);
-  const [error, setError] = useState("");
-  const [show, setShow] = useState(false);
+  const [error, setError] = useState('');
   const [resetPassword, setResetPassword] = useState(false);
   const auth = useAuth();
   const history = useHistory();
 
   return (
     <Container fluid>
-      <Toast
-        title="Notification"
-        show={show}
-        setShow={setShow}
-        body="Success!"
-      />
       <div className="text-center mt-3">
         <h2>Authentication</h2>
       </div>
@@ -64,7 +56,7 @@ const Auth = () => {
         >
           <Formik
             initialValues={
-              resetPassword ? { email: "" } : { email: "", password: "" }
+              resetPassword ? { email: '' } : { email: '', password: '' }
             }
             validationSchema={yup.object(
               resetPassword
@@ -77,18 +69,15 @@ const Auth = () => {
                   }
             )}
             onSubmit={(values, { setSubmitting, resetForm }) => {
-              setError("");
-              const { email, password = "" } = values;
+              setError('');
+              const { email, password = '' } = values;
 
               if (login && !resetPassword) {
                 auth
                   .signin(email, password)
                   .then(() => {
                     resetForm();
-                    setShow(true);
-                    setTimeout(() => {
-                      history.push("/usr/dashboard");
-                    }, 1600);
+                    history.push('/usr/dashboard');
                   })
                   .catch((err) => setError(err.message));
               } else if (!login && !resetPassword) {
@@ -96,10 +85,7 @@ const Auth = () => {
                   .signup(email, password)
                   .then(() => {
                     resetForm();
-                    setShow(true);
-                    setTimeout(() => {
-                      history.push("/usr/dashboard");
-                    }, 1600);
+                    history.push('/usr/dashboard');
                   })
                   .catch((err) => setError(err.message));
               } else if (resetPassword) {
@@ -107,12 +93,7 @@ const Auth = () => {
                   .sendPasswordResetEmail(email)
                   .then(() => {
                     resetForm();
-                    setShow(true);
-                    setTimeout(() => {
-                      alert(
-                        "Please, check your inbox for further instructions!"
-                      );
-                    }, 1600);
+                    alert('Please, check your inbox for further instructions!');
                   })
                   .catch((err) => setError(err.message));
               }
@@ -145,6 +126,7 @@ const Auth = () => {
                   <p>{error}</p>
                 </div>
               )}
+
               <div className="text-center">
                 <Button
                   className="font-weight-bold"
@@ -152,16 +134,16 @@ const Auth = () => {
                   type="submit"
                   size="lg"
                 >
-                  {login && !resetPassword && "Login"}
-                  {!login && !resetPassword && "Register"}
-                  {resetPassword && "Reset"}
+                  {login && !resetPassword && 'Login'}
+                  {!login && !resetPassword && 'Register'}
+                  {resetPassword && 'Reset'}
                 </Button>
               </div>
             </FormikForm>
           </Formik>
           <div className="mt-5 text-center">
             <p>
-              {login ? "Don't" : "Already"} have an account?{" "}
+              {login ? "Don't" : 'Already'} have an account?{' '}
               <span
                 onClick={() => {
                   setLogin((prev) => !prev);
@@ -169,7 +151,7 @@ const Auth = () => {
                 }}
                 className="font-weight-bold text-dark btn-txt"
               >
-                {login ? "Register Here" : "Login"}
+                {login ? 'Register Here' : 'Login'}
               </span>
             </p>
           </div>

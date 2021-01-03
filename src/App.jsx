@@ -12,12 +12,17 @@ import AOS from 'aos';
 
 import MainNav from './shared/components/Header/MainNav';
 import Home from './shared/pages/Home';
-import Auth from './users/pages/Auth/Auth';
 import Footer from './shared/components/HomePage/Footer';
-import Dashboard from './users/pages/Dashboard/Dashboard';
+import Loader from './shared/components/Loader/Loader';
 import { useAuth } from './hooks/useAuth';
 import 'aos/dist/aos.css';
 import './styles.css';
+
+// lazy imports
+const Auth = React.lazy(() => import('./users/pages/Auth/Auth'));
+const UserDashboard = React.lazy(() =>
+  import('./users/pages/Dashboard/UserDashboard')
+);
 
 const App = () => {
   AOS.init();
@@ -27,38 +32,37 @@ const App = () => {
 
   if (auth.user) {
     routes = (
-      <>
+      <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route to="/usr/dashboard">
-          <Dashboard />
+        <Route path="/usr/dashboard">
+          <UserDashboard />
         </Route>
-      </>
+        <Redirect to="/" />
+      </Switch>
     );
   } else {
     routes = (
-      <>
+      <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
         <Route path="/auth">
           <Auth />
         </Route>
-      </>
+        <Redirect to="/auth" />
+      </Switch>
     );
   }
 
-  return (
+  return auth.loading ? (
+    <Loader />
+  ) : (
     <Router>
       <MainNav />
       <main>
-        <Suspense fallback={<h1>Loading...</h1>}>
-          <Switch>
-            {routes}
-            <Redirect to="/" />
-          </Switch>
-        </Suspense>
+        <Suspense fallback={<Loader />}>{routes}</Suspense>
         <Footer />
       </main>
     </Router>
